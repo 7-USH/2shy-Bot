@@ -1,4 +1,4 @@
-from _typeshed import SupportsRead
+
 import pyautogui as pt
 from time import sleep
 import pyperclip
@@ -69,7 +69,7 @@ def check_newmessage():
                 pt.moveRel(-100,0)
                 pt.click()
                 pt.sleep(.5)
-
+        
         except(Exception):
             print("no new messages from other user located")
         if pt.pixelMatchesColor(int(x+120),int(y-50),(38,45,49),tolerance=10):
