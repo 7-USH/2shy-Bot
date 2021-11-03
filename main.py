@@ -56,7 +56,7 @@ def process_respone(message):
     elif "lodi" in str(message) :
         return "bsdk - 2shy Bot"
     elif "Hey this is 2shy Bot" in str(message):
-        return "Hey don't copy me - 2shy Bot"       
+        return "Hey don't copy me  Bsdk - 2shy Bot"       
     else:
         return "Hey this is 2shy Bot"        
 
