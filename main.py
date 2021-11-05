@@ -1,4 +1,3 @@
-
 import pyautogui as pt
 from time import sleep
 import pyperclip
@@ -24,13 +23,29 @@ def get_message():
     return pyperclip.paste()
 
 def response(message):
-    global x,y
-    postion = pt.locateOnScreen("smiley_image.png",confidence=.6)
-    x = postion[0]
-    y = postion[1]
-    pt.moveTo(x+200,y+20,duration=.5)
+    # global x,y
+    # postion = pt.locateOnScreen("smiley_image.png",confidence=.6)
+    # x = postion[0]
+    # y = postion[1]
+    # pt.moveTo(x+200,y+20,duration=.5)
+    # pt.click()
+    # pt.typewrite(message=message,interval=0.01)
+    position = pt.locateOnScreen("smiley_image.png",confidence = 0.6)
+    x = position[0]
+    y = position[1]
+    pt.moveTo(x+120,y-70,duration=0.5)
+    position = pt.locateOnScreen("arrow.png",confidence = 0.7)
+    x = position[0]
+    y = position[1]
+    pt.moveTo(x+35,y,duration=0.5)
     pt.click()
-    pt.typewrite(message=message,interval=0.01)
+    sleep(0.1)
+    reply_position = pt.locateOnScreen("reply.png",confidence = 0.7)
+    a = reply_position[0]
+    b = reply_position[1]
+    pt.moveTo(a,b,duration=0.5)
+    pt.click()
+    pt.typewrite(message=message,interval=0.05)
     pt.typewrite("\n",interval=0.01)
     
 
@@ -40,7 +55,7 @@ def process_respone(message):
     if "?" in str(message).lower():
         return "I don't know the answer to this question - 2shy Bot"
     elif "@2SH"in str(message):
-        return "Sorry sir/madam tushar is busy right now - 2shy Bot"
+        return "Sorry sir/madam Tushar is busy right now - 2shy Bot"
     elif "tutorial" in str(message).lower():
         return "All the Best Everyone - 2shy Bot"
     elif "assignment" in str(message).lower():
